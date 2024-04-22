@@ -16,6 +16,7 @@ for(i = 0; i < 3; i++)
     }
     cantidades.push(entrada)
 }
+
 let mayor = cantidades[0]
 function cantidadMayor(myArray)
 {
@@ -26,9 +27,8 @@ function cantidadMayor(myArray)
              mayor = myArray[j]
         }
     }
-    console.log("La cantidad mayor del arreglo es: " + mayor)    
 }
-cantidadMayor(cantidades)
+
 let menor = cantidades[0]
 function cantidadMenor(myArray)
 {
@@ -39,9 +39,8 @@ function cantidadMenor(myArray)
              menor = myArray[j]
         }
     }
-    console.log("La cantidad menor del arreglo es: " + menor)    
 }
-cantidadMenor(cantidades)
+
 let medio = cantidades[0]
 function cantidadMedio(myArray)
 {
@@ -52,24 +51,43 @@ function cantidadMedio(myArray)
              medio = myArray[j]
         }
     }
-
 }
-cantidadMedio(cantidades)
-if(medio===mayor || medio===menor)
+
+function ordenarMenorAMayor(numbers)
 {
-    console.log("No se puede determinar la cantidad del medio. Hay números que son iguales en el arreglo")
+   meAMa = numbers.sort(function(a, b){return a - b})
+}
+function ordenarMayorAMenor(numbers)
+{
+   maAMe = numbers.sort(function(a, b){return b - a})
+}
+
+cantidadMayor(cantidades)
+cantidadMenor(cantidades)
+cantidadMedio(cantidades)
+
+if(medio === mayor && medio === menor)
+{
+    console.log("Las 3 cantidades en el arreglo son iguales, no se pueden ordenar de mayor a menor ni de menor a mayor.")
+}
+else if(medio === mayor || medio === menor)
+{
+    console.log("La cantidad mayor del arreglo es: " + mayor)   
+    console.log("La cantidad menor del arreglo es: " + menor)    
+    console.log("No hay una cantidad que sea intermedia porque hay 2 números que son iguales en el arreglo.")
+    ordenarMenorAMayor(cantidades)
+    console.log("El arreglo parcialmente ordenado de menor a mayor es: " + meAMa)  
+    ordenarMayorAMenor(cantidades)
+    console.log("El arreglo parcialmente ordenado de mayor a menor es: " + maAMe)
 }
 else 
 {
-    console.log("La cantidad del medio en el arreglo es: " + medio)    
+    console.log("La cantidad mayor del arreglo es: " + mayor)   
+    console.log("La cantidad menor del arreglo es: " + menor)   
+    console.log("La cantidad intermedia del arreglo es: " + medio)
+    ordenarMenorAMayor(cantidades)
+    console.log("El arreglo ordenado de menor a mayor es: " + meAMa)
+    ordenarMayorAMenor(cantidades)
+    console.log("El arreglo ordenado de mayor a menor es: " + maAMe)
 }
-function ordenarMenorAMayor (numbers)
-{
-     console.log("El arreglo ordenado de menor a mayor es: " + numbers.sort(function(a, b){return a - b}))
-}
-ordenarMenorAMayor (cantidades)
-function ordenarMayorAMenor(numbers)
-{
-     console.log("El arreglo ordenado de mayor a menor es: " + numbers.sort(function(a, b){return b - a}))
-}
-ordenarMayorAMenor(cantidades)
+
