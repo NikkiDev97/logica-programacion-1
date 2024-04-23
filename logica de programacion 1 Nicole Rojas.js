@@ -53,13 +53,15 @@ function cantidadMedio(myArray)
     }
 }
 
-function ordenarMenorAMayor(numbers)
+function ordenarMenorAMayor(myArray)
 {
-   meAMa = numbers.sort(function(a, b){return a - b})
+   menorAMayor = myArray.sort(function(a, b){return a - b})
+   console.log("El arreglo ordenado de menor a mayor es: " + menorAMayor) 
 }
-function ordenarMayorAMenor(numbers)
+function ordenarMayorAMenor(myArray)
 {
-   maAMe = numbers.sort(function(a, b){return b - a})
+   mayorAMenor = myArray.sort(function(a, b){return b - a})
+   console.log("El arreglo ordenado de mayor a menor es: " + mayorAMenor)
 }
 
 cantidadMayor(cantidades)
@@ -70,24 +72,18 @@ if(medio === mayor && medio === menor)
 {
     console.log("Las 3 cantidades en el arreglo son iguales, no se pueden ordenar de mayor a menor ni de menor a mayor.")
 }
-else if(medio === mayor || medio === menor)
+else
 {
     console.log("La cantidad mayor del arreglo es: " + mayor)   
     console.log("La cantidad menor del arreglo es: " + menor)    
-    console.log("No hay una cantidad que sea intermedia porque hay 2 números que son iguales en el arreglo.")
+    if(medio === mayor || medio === menor)
+    {
+        console.log("No hay una cantidad que sea intermedia porque hay 2 números que son iguales en el arreglo.")
+    }
+    else 
+    {
+        console.log("La cantidad intermedia del arreglo es: " + medio)
+    }
     ordenarMenorAMayor(cantidades)
-    console.log("El arreglo parcialmente ordenado de menor a mayor es: " + meAMa)  
     ordenarMayorAMenor(cantidades)
-    console.log("El arreglo parcialmente ordenado de mayor a menor es: " + maAMe)
 }
-else 
-{
-    console.log("La cantidad mayor del arreglo es: " + mayor)   
-    console.log("La cantidad menor del arreglo es: " + menor)   
-    console.log("La cantidad intermedia del arreglo es: " + medio)
-    ordenarMenorAMayor(cantidades)
-    console.log("El arreglo ordenado de menor a mayor es: " + meAMa)
-    ordenarMayorAMenor(cantidades)
-    console.log("El arreglo ordenado de mayor a menor es: " + maAMe)
-}
-
